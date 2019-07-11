@@ -123,5 +123,11 @@ body {
   margin: 3px 0 10px;
 }
 
+.graph {
+  background: white;
+  padding: 5px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
 
 
