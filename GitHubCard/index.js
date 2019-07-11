@@ -105,7 +105,7 @@ createCard = object => {
   link.textContent = object.html_url;
   followers.textContent = `Followers: ${object.followers}`;
   following.textContent = `Following: ${object.following}`;
-  bio.textContent = `Bio: ${object.bio}`;
+  bio.textContent = object.bio ? `Bio: ${object.bio}` : "Bio: none";
 
   // assign children
   let nestedFragment = document.createDocumentFragment();
