@@ -130,4 +130,10 @@ body {
   border-radius: 5px;
 }
 
+.card-info {
+  width: 100%;
+}
 
+img.card-graph {
+  width: 100%;
+}

@@ -14,6 +14,7 @@ createCard = object => {
   let followers = document.createElement("p");
   let following = document.createElement("p");
   let bio = document.createElement("p");
+  let graph = document.createElement("img");
 
   // assign classes and other properties
   card.classList.add("card");
@@ -22,11 +23,14 @@ createCard = object => {
   name.classList.add("name");
   userName.classList.add("username");
   link.href = object.html_url;
+  graph.src = `http://ghchart.rshah.org/${object.login}`;
+  graph.alt = `${object.login} contribution graph`;
+  graph.classList.add("card-graph");
 
   // assign text content
   name.textContent = object.name;
   userName.textContent = object.login;
-  location.textContent = `Location: ${object.location}`;
+  location.textContent = object.location ? `Location: ${object.location}` : "Location: ";
   profile.textContent = 'Profile: ';
   link.textContent = object.html_url;
   followers.textContent = `Followers: ${object.followers}`;
@@ -46,6 +50,7 @@ createCard = object => {
   nestedFragment.appendChild(followers);
   nestedFragment.appendChild(following);
   nestedFragment.appendChild(bio);
+  nestedFragment.appendChild(graph);
 
   info.appendChild(nestedFragment);
 
