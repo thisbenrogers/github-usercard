@@ -1,5 +1,4 @@
 let cardsEntry = document.querySelector(".cards");
-let graphEntry = document.querySelector(".graph");
 let followersEntry = document.querySelector(".followers");
 
 createCard = object => {
@@ -70,8 +69,8 @@ getFollowerData = follower => {
 }
 
 
-getMyFollowers = () => {
-  axios.get('https://api.github.com/users/thisbenrogers/followers')
+getMyFollowers = url => {
+  axios.get(url)
     .then(response => {
       response.data.forEach(follower => {
         getFollowerData(follower.login);
@@ -86,7 +85,7 @@ getMyFollowers = () => {
 axios.get('https://api.github.com/users/thisbenrogers')
   .then(response => {
     cardsEntry.appendChild(createCard(response.data));
-    getMyFollowers();
+    getMyFollowers(response.data.followers_url);
   })
   .catch(err => {
     console.log("There was an error: ", err);
